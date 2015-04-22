@@ -3,7 +3,7 @@
  * Para executar, rode o seguinte comando no terminal:
  * java GB ./teste.gb
  *
- * Por Fernando Bevilacqua <fernando.bevilacqua@uffs.edu.br>
+ * 
  */
 
 import java.util.Scanner;
