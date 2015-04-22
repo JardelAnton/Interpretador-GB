@@ -10,7 +10,7 @@ class Interpretador {
         //retira os espaços, menos em linhas que tem imprime
         for(int i=0; i<this.linhas.length; i++){
             if(this.linhas[i].contains("#Imprime")==0) {
-                linhas[i]=linhas[i].trim();
+                linhas[i]=linhas[i].replaceAll(" ","") ;
             }
         }
 
