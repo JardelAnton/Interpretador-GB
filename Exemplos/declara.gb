@@ -1,0 +1,4 @@
+
+double num;
+num == 12;
+#Imprime ($num);
