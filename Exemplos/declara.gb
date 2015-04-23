@@ -1,4 +1,4 @@
 
-double num;
+#var num;
 num == 12;
 #Imprime ($num);
