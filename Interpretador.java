@@ -8,7 +8,7 @@ class Interpretador {
     public void interpreta(String l[]) {
         this.linhas = l;
         //retira os espaços, menos em linhas que tem imprime
-        for(int i=0; i<this.linhas.length; i++){
+        for(int i=0; linhas[i] != null; i++){
             if(this.linhas[i].contains("#Imprime")==false) {
                 linhas[i]=linhas[i].replaceAll(" ","") ;
             }
@@ -20,7 +20,7 @@ class Interpretador {
             		this.imprime(this.linhas[i]);
             	}
                 // TODO: interpretar a linha
-                System.out.println("Linha " + (i + 1) + ": " + this.linhas[i]);
+               
             }
         }
     }
@@ -30,25 +30,25 @@ class Interpretador {
     	int i;
     	double var;
     	int c;
-    	int aux;
+    	int aux=0;
     	String []j;
-    	j= new String[5000];
-    	for(i=0;i<h.length;i++){
+    	for(i=0;i<h.length();i++){
     		aux=i;
-    		if(h[i]=='('){
+    		if(h.charAt(i)=='('){
+    			aux++;
     			break;
     		}
     	}
-    	for(i=0;h[aux] != ')';i++){
-    		c++;
-    		j[i]=h[aux];
-    		aux++;
-    	}
-    	for(i=0;i<c;i++){
-    		if(h[i] != '$'){ // fazer \n
-    			System.out.println(this.h[i]);
+
+    	for(i=aux;h.charAt(i) != ')';i++){
+    		if(h.charAt(i) != '$'){ // fazer \n
+    			if(h.charAt(i) == '\\'){
+    				System.out.println("");
+    			}else{
+    				System.out.print(h.charAt(i));
+    			}
     		}else{
-    			//verifica variavel.
+    			//$
     		}
 
     	}

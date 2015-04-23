@@ -18,6 +18,12 @@ class GB {
 
         // args[0] conterá o caminho para o arquivo que serah interpretado.
         f = new File(args[0]);
+
+        
+
+
+        
+
         // Mandamos o Scanner ler a partir do arquivo.
         s = new Scanner(f);
         // Instanciamos o interpretador.
@@ -30,6 +36,10 @@ class GB {
             linhas[i] = s.nextLine();
             i++;
         }
+
+       // for(int x = 0; linhas[x] != null; x++) {
+       //     System.out.println(linhas[x]);
+       // }
 
         // Inicializamos o interpretador com o vetor de linhas. A partir
         // desse ponto, o objeto "b" irá interpretar o código lido do arquivo.
