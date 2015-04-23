@@ -25,7 +25,7 @@ class Matematica {
 
 	public boolean verificaVar(String h){
 		for(int i =0;i<topo;i++){
-			if(h==variaveis[i].nome){
+			if(h.equals(variaveis[i].nome)){
 				return true;
 			}
 		}
