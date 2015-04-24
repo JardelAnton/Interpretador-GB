@@ -4,7 +4,10 @@ class Matematica {
 
 
 	public Matematica() {
-		variaveis = new Var[1000];
+		variaveis = new Var[2000];
+		for(int i = 0; i < variaveis.length; i++){
+            variaveis[i] = new Variavel();
+        }
 		topo=0;
 	}
 	public void criaVar(String h){
