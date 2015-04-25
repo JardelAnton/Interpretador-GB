@@ -18,8 +18,22 @@ class Interpretador {
         for(int i = 0; i < this.linhas.length; i++) {
             if(this.linhas[i] != null) {
             	if(this.linhas[i].contains("#Imprime")==true){
-            		this.imprime(this.linhas[i]);
-            	}
+            		mat.imprime(this.linhas[i]);
+            	}else if(this.linhas[i].contains("#Var")==true){
+                    mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#If")==true){
+                   // mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#Se")==true){
+                    //mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#Le")==true){
+                    //mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#Enquanto")==true){
+                    //mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#Fimse")==true){
+                    //mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("#Fimenquanto")==true){
+                    //mat.criaVar(this.linhas[i])
+                }else if(this.linhas[i].contains("=")==true)
                 // TODO: interpretar a linha
                
             }
@@ -27,27 +41,6 @@ class Interpretador {
     }
 
 
-    public void imprime (String h) {
-    	int i;
-    	double var;
-    	int c;
-    	int aux=0;
-    	String []j;
-    	aux=aux.achar(String h);
-
-    	for(i=aux;h.charAt(i) != ')';i++){
-    		if(h.charAt(i) != '$'){ 
-    			if(h.charAt(i) == '\\'){
-    				System.out.println("");
-    			}else{
-    				System.out.print(h.charAt(i));
-    			}
-    		}else{
-    			// $
-    		}
-
-    	}
-    }
 
 }
 
