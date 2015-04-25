@@ -24,7 +24,9 @@ class Matematica {
 		}
 	}
 	public void atribuicao (String h) {
-		aux=0;
+		int aux=0;
+		int a=0,b=0;
+		int pos=0;
 		String a[]= new String[6];
 		a[0] = new String();
 		a[1] = new String();
@@ -55,6 +57,48 @@ class Matematica {
 			aux++;
 			a[5]=h.charAt(aux);
 		}
+		if(this.ehVar(a[2])){
+			pos=this.verificaVar(a[2]);
+			if(pos>=0){
+				a=variaveis[pos].getValor();
+			}else{
+					System.out.println(a[2]+"n existe");
+				}
+			
+		}else{
+			a=Double.parseDouble(a[2]);
+		}
+		
+		if(a[3].charAt(1) != ';'){
+			if(this.ehVar(a[4])){
+				pos=this.verificaVar(a[4]);
+				if(pos>=0){
+					b=variaveis[pos].getValor();
+				}else{
+					System.out.println(a[4]+"n existe");
+				}
+			}else{
+				b=Double.parseDouble(a[4]);
+			}
+		}else{
+			b=0;
+		}
+		pos=this.verificaVar(a[0]);
+		if(a[1].charAt(0)== '='){
+			if (pos>=0){
+				int x=this.operacao(a,b,a.charAt(1))
+				variaveis.setValor(x);
+			}
+		}
+
+	}
+
+	public boolean ehVar (String h) {
+		char a = h.charAt(1);
+			if(a < 'A' || a > 'z'){
+				return false;
+			}
+		return true;
 
 	}
 
@@ -80,7 +124,7 @@ class Matematica {
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 	}
 
 	public int achar (String h){
