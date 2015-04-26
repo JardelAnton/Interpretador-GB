@@ -98,16 +98,16 @@ class Matematica {
 	}
 
 	public double operacao(double a, double b, char c){
-		if(c == '+'){
+		if(c == '++'){
 			return (a+b);
 		}
-		if(c == '-'){
+		if(c == '--'){
 			return (a-b);
 		}
-		if(c == '*'){
+		if(c == '**'){
 			return (a*b);
 		}
-		if(c == '/'){
+		if(c == '//'){
 			return (a/b);
 		}
 
@@ -171,6 +171,8 @@ class Matematica {
 		}
 		return var;
     }
+
+
 
 
 }
