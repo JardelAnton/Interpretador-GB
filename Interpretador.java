@@ -38,17 +38,7 @@ class Interpretador {
                 }else{
                     System.out.println("Nao foi possivel interpretar");
                 }
-               
             }
         }
     }
-
-
-
 }
-
-
-
-
-
-
