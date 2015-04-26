@@ -20,7 +20,7 @@ class Interpretador {
             	if(this.linhas[i].contains("#Imprime")==true){
             		mat.imprime(this.linhas[i]);
             	}else if(this.linhas[i].contains("#Var")==true){
-                    mat.criaVar(this.linhas[i])
+                    mat.criaVar(this.linhas[i]);
                 }else if(this.linhas[i].contains("#If")==true){
                    // mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("#Se")==true){
@@ -33,8 +33,11 @@ class Interpretador {
                     //mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     //mat.criaVar(this.linhas[i])
-                }else if(this.linhas[i].contains("=")==true)
-                // TODO: interpretar a linha
+                }else if(this.linhas[i].contains("=")==true){
+                    mat.atribuicao(this.linhas[i]);
+                }else{
+                    System.out.println("Nao foi possivel interpretar");
+                }
                
             }
         }
