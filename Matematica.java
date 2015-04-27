@@ -15,7 +15,7 @@ class Matematica {
 		String var;
 		aux=this.achar(h);
 		aux++;
-		var=retVar(")",h,aux);
+		var=retVar(')',h,aux);
 		if(this.verificaVar(var)==0){
 			variaveis[topo].nome=var;
 			topo++;
@@ -25,63 +25,63 @@ class Matematica {
 	}
 	public void atribuicao (String h) {
 		int aux=0;
-		int a=0,b=0;
+		double a=0,b=0;
 		int pos=0;
 		int i;
-		String a[]= new String[6];
-		for(int i=0;h.charAt(i) != '=';i++){
-			a[0]=a[0].concat(h.charAt(i));
+		String temp[];
+		for(i=0;h.charAt(i) != '=';i++){
+			temp[0]=temp[0].concat(h.charAt(i));
 			aux=i;
 		}
 		aux++;
-		a[1]=h.charAt(aux);
+		temp[1]=h.charAt(aux);
 		aux++;
 		for(i=aux;h.charAt(i) != '+' && h.charAt(i) != '/' && h.charAt(i) != '*' && h.charAt(i) != '-' ;i++){
-				a[2]=a[2].concat(h.charAt(i));
+				temp[2]=temp[2].concat(h.charAt(i));
 				aux=i;
 		}
 		aux++;
 		if(h.charAt(aux) == ';'){
-			h[3]=';';
+			temp[3]=';';
 		}else{
-			h[3]=h.charAt(aux);
+			temp[3]=h.charAt(aux);
 			for(i=aux;h.charAt(i) != ';';i++){
-				a[4]=a[4].concat(h.charAt(i));
+				temp[4]=temp[4].concat(h.charAt(i));
 				aux=i;
 			}
 			aux++;
-			a[5]=h.charAt(aux);
+			temp[5]=h.charAt(aux);
 		}
-		if(this.ehVar(a[2])){
-			pos=this.verificaVar(a[2]);
+		if(this.ehVar(temp[2])){
+			pos=this.verificaVar(temp[2]);
 			if(pos>=0){
 				a=variaveis[pos].getValor();
 			}else{
-					System.out.println(a[2]+"n existe");
+					System.out.println(temp[2]+"n existe");
 				}
 			
 		}else{
-			a=Double.parseDouble(a[2]);
+			a=Double.parseDouble(temp[2]);
 		}
 		
-		if(a[3].charAt(1) != ';'){
-			if(this.ehVar(a[4])){
-				pos=this.verificaVar(a[4]);
+		if(temp[3].charAt(1) != ';'){
+			if(this.ehVar(temp[4])){
+				pos=this.verificaVar(temp[4]);
 				if(pos>=0){
 					b=variaveis[pos].getValor();
 				}else{
-					System.out.println(a[4]+"n existe");
+					System.out.println(temp[4]+"n existe");
 				}
 			}else{
-				b=Double.parseDouble(a[4]);
+				b=Double.parseDouble(temp[4]);
 			}
 		}else{
 			b=0;
 		}
-		pos=this.verificaVar(a[0]);
-		if(a[1].charAt(0)== '='){
+		pos=this.verificaVar(temp[0]);
+		if(temp[1].charAt(0)== '='){
 			if (pos>=0){
-				int x=this.operacao(a,b,a.charAt(1));
+				double x=this.operacao(a,b,a.charAt(1));
 				variaveis.setValor(x);
 			}
 		}
@@ -98,16 +98,16 @@ class Matematica {
 	}
 
 	public double operacao(double a, double b, char c){
-		if(c == '++'){
+		if(c == '+'){
 			return (a+b);
 		}
-		if(c == '--'){
+		if(c == '-'){
 			return (a-b);
 		}
-		if(c == '**'){
+		if(c == '*'){
 			return (a*b);
 		}
-		if(c == '//'){
+		if(c == '/'){
 			return (a/b);
 		}
 
