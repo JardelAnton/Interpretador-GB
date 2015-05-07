@@ -30,14 +30,17 @@ class GB {
             linhas[i] = s.nextLine();
             i++;
         }
-
-       // for(i=0; linhas[i] != null; i++){
-       //         linhas[i]=linhas[i].replaceAll(" ","") ;
-       // }
-
-       // for(int x = 0; linhas[x] != null; x++) {
-       //     System.out.println(linhas[x]);
-       // }
+        /*
+        for(i=0; linhas[i] != null; i++){
+            if(linhas[i].contains("#Imprime")==false) {
+                linhas[i]=linhas[i].replaceAll(" ","") ;
+            }
+        }
+ 
+         for(int x = 0; linhas[x] != null; x++) {
+            System.out.println(linhas[x]);
+        }
+        */
 
         // Inicializamos o interpretador com o vetor de linhas. A partir
         // desse ponto, o objeto "b" irá interpretar o código lido do arquivo.
