@@ -1,9 +1,7 @@
-#Imprime (Oi\\\)
-#Imprime (puts\)
-#Imprime (puts\)
-#Imprime (puts\)
-#Imprime (20\)
-#Imprime (puts\)
-#Imprime (puts\)
-#Imprime (puts\)
-haha=oi+12;
+#Var(b)
+#Var(oi)
+#Var(haha)
+oi=12;
+haha=3;
+b=haha+oi;
+#Imprime(Oi $b )

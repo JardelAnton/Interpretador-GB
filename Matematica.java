@@ -17,13 +17,14 @@ class Matematica {
 		var=retVar(')',h,aux);
 		if(this.verificaVar(var)==-1){
 			variaveis[topo].nome=var;
+			variaveis[topo].setValor(0.0);
 			topo++;
 		}else{
 			System.out.println("Var ja existe");
 		}
-		for(int i =0;i<topo;i++){
-			System.out.println(variaveis[i].nome);
-		}
+		//for(int i =0;i<topo;i++){
+		//	System.out.println(variaveis[i].nome);
+		//}
 	}
 
 	
@@ -31,8 +32,10 @@ class Matematica {
 
 	public void atribuicao (String h) {
 		String var_1,var_2,var_3;
-		char tok;
+		Character tok;
 		int aux=0;
+		int pqp;
+		double a=0,b=0,c=0;
 		var_1=this.retVar('=',h,0);
 		aux=this.achar(h,'=');
     	StringBuilder sb = new StringBuilder();
@@ -41,16 +44,54 @@ class Matematica {
 			aux=i;
 		}
 		var_2 = sb.toString();
-		tok=h.charAt(aux+1);
-		if(tok != ';'){
+		tok= new Character (h.charAt(aux+1));
+		pqp=(int)tok;
+		if(pqp != 59){
+			pqp=2;
 			var_3=this.retVar(';',h,aux+2);
+		}else{
+			pqp=1;
+			var_3="";
 		}
+
+		if(pqp == 2){
+			a=this.pegaValor(var_2);
+			b=this.pegaValor(var_3);
+	
+		}else{
+			a=this.pegaValor(var_2);
+		}
+		aux=verificaVar(var_1);
+		if (aux != -1) {
+			c=this.operacao(a,b,tok);
+			variaveis[aux].setValor(c);
+		}else{
+			System.out.println("Var n existe");
+		}
+
+		//System.out.println(var_1);
+		//System.out.println(var_2);
+		//System.out.println(var_3);
+		//System.out.println(tok);
+		//System.out.println(a);
 		
-		System.out.println(var_1);
-		System.out.println(var_2);
-		System.out.println(var_3);
-		System.out.println(tok);
+	}
+
+	public double pegaValor(String h){
+		int aux;
+		double a=0;
+		if(this.ehVar(h)){
+				aux=verificaVar(h);
+				if (aux!=-1){
+					a=variaveis[aux].getValor();
+				}else{
+					System.out.println(" Var n existe ");
+				}
+			}else{
+				a=Double.parseDouble(h);
+			}
 		
+			return a;
 	}
 	
 	public boolean ehVar (String h) {
