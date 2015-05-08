@@ -33,7 +33,7 @@ class Interpretador {
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     //mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("=")==true){
-                   // mat.atribuicao(this.linhas[i]);
+                    mat.atribuicao(this.linhas[i]);
                 }else{
                     System.out.println("Nao foi possivel interpretar");
                 }

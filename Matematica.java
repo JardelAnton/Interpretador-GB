@@ -13,7 +13,7 @@ class Matematica {
 	public void criaVar(String h){
 		int aux=0;
 		String var;
-		aux=this.achar(h);
+		aux=this.achar(h,'(');
 		var=retVar(')',h,aux);
 		if(this.verificaVar(var)==-1){
 			variaveis[topo].nome=var;
@@ -28,83 +28,37 @@ class Matematica {
 
 	
 
-/*
+
 	public void atribuicao (String h) {
+		String var_1,var_2,var_3;
+		char tok;
 		int aux=0;
-		double a=0,b=0;
-		int pos=0;
-		int i;
-		char sinal;
-		String temp[];
-		temp=new String[3];
-		StringBuilder sb = new StringBuilder();
-		for(i=0;h.charAt(i) != '=';i++){
+		var_1=this.retVar('=',h,0);
+		aux=this.achar(h,'=');
+    	StringBuilder sb = new StringBuilder();
+		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';';i++){
 			sb.append(h.charAt(i));
 			aux=i;
 		}
-		temp[0]= sb.toString();
-		aux++;
-		//a=h.charAt(aux); recebe o =
-		aux++;
-		sb = new StringBuilder();
-		for(i=aux;h.charAt(i) != '+' || h.charAt(i) != '/' || h.charAt(i) != '*' || h.charAt(i) != '-' ;i++){
-				sb.append(h.charAt(i));
-				aux=i;
-		}
-		temp[1]= sb.toString();
-		aux++;
-		if(h.charAt(aux) != ';'){
-			sb = new StringBuilder();
-			sinal=h.charAt(aux);
-			for(i=aux;h.charAt(i) != ';';i++){
-				sb.append(h.charAt(i));
-				aux=i;
-			}
-			aux++;
-			temp[2]= sb.toString();
-		}
-		if(this.ehVar(temp[2])){
-			pos=this.verificaVar(temp[2]);
-			if(pos>=0){
-				a=variaveis[pos].getValor();
-			}else{
-					System.out.println(temp[2]+"n existe");
-				}
-			
-		}else{
-			a=Double.parseDouble(temp[2]);
+		var_2 = sb.toString();
+		tok=h.charAt(aux+1);
+		if(tok != ';'){
+			var_3=this.retVar(';',h,aux+2);
 		}
 		
-		if(temp[3].charAt(1) != ';'){
-			if(this.ehVar(temp[4])){
-				pos=this.verificaVar(temp[4]);
-				if(pos>=0){
-					b=variaveis[pos].getValor();
-				}else{
-					System.out.println(temp[4]+"n existe");
-				}
-			}else{
-				b=Double.parseDouble(temp[4]);
-			}
-		}else{
-			b=0;
-		}
-		pos=this.verificaVar(temp[0]);
-		if(temp[1].charAt(0)== '='){
-			if (pos>=0){
-				double x=this.operacao(a,b,a.charAt(1));
-				variaveis.setValor(x);
-			}
-		}
-
+		System.out.println(var_1);
+		System.out.println(var_2);
+		System.out.println(var_3);
+		System.out.println(tok);
+		
 	}
-	*/
+	
 	public boolean ehVar (String h) {
-		char a = h.charAt(1);
-			if(a < 'A' || a > 'z'){
-				return false;
+		char a = h.charAt(0);
+			if(a >= 'A' && a <'[' || a>='a' && a<'}'){
+				return true;
 			}
-		return true;
+		return false;
 
 	}
 
@@ -134,12 +88,12 @@ class Matematica {
 		return -1;
 	}
 
-	public int achar (String h){
+	public int achar (String h,char c){
 		int i=0;
 		int aux=0;
 		for(i=0;i<h.length();i++){
     		aux=i;
-    		if(h.charAt(i)=='('){
+    		if(h.charAt(i)==c){
     			aux++;
     			break;
     		}
@@ -154,7 +108,7 @@ class Matematica {
     	String vari;
     	int c;
     	int aux=0;
-    	aux=this.achar(h);
+    	aux=this.achar(h,'(');
     	for(i=aux;h.charAt(i) != ')';i++){
     		if(h.charAt(i) != '$'){ 
     			if(h.charAt(i) == '\\'){
