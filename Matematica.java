@@ -144,7 +144,7 @@ class Matematica {
 
 
 	public void imprime (String h) {
-    	int i;
+    	int i,j,g=1;
     	double var;
     	String vari;
     	int c;
@@ -163,6 +163,8 @@ class Matematica {
     			if(aux>=0){
     				var=variaveis[aux].getValor();
     				System.out.print(var);
+    				g=vari.length();
+    				i=i+g;
     			}else{
     				System.out.println("Var n existe");
     			}
