@@ -1,3 +1,8 @@
+
+
+
+
+import java.util.Scanner;
 class Matematica {
 	Var []variaveis;
 	private int topo;
@@ -183,7 +188,26 @@ class Matematica {
 		return var;
     }
 
+    public void scan(String h){
+    	int aux=0;
+		String var;
+		aux=this.achar(h,'(');
+		var=retVar(')',h,aux);
+		//System.out.println(var);
+		aux=verificaVar(var);
+		Scanner scanner = new Scanner(System.in);
+		double valor = scanner.nextDouble(); 
+		//System.out.println(valor);
+		//System.out.println(aux);
+		if(aux==-1) {
+			this.criaVar(h);
+			variaveis[topo-1].setValor(valor);
+		}else{
+			variaveis[aux].setValor(valor);
+		}
+		
 
+    }
 
 
 }

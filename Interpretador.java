@@ -25,7 +25,7 @@ class Interpretador {
                 }else if(this.linhas[i].contains("#Se")==true){
                     //mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("#Le")==true){
-                    //mat.criaVar(this.linhas[i])
+                    mat.scan(this.linhas[i]);
                 }else if(this.linhas[i].contains("#Enquanto")==true){
                     //mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("#Fimse")==true){
