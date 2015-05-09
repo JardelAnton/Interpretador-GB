@@ -1,7 +1,2 @@
-#Var(b)
-#Var(oi)
-#Var(haha)
-oi=12;
-haha=3;
-b=haha+oi;
-#Imprime(Oi $b $oi oi )
+#Le(haha)
+#Imprime($haha )
