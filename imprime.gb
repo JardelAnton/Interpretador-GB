@@ -1,2 +1,6 @@
 #Le(haha)
-#Imprime($haha )
+#Var (a)
+a=2;
+#Var (b)
+b=5;
+#Se(a#=b-3)
