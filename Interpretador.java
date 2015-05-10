@@ -5,6 +5,7 @@
 class Interpretador {
     private String linhas[];
     private Matematica mat= new Matematica();
+    private Boolean valida = true;
 
     public void interpreta(String l[]) {
 
@@ -19,23 +20,33 @@ class Interpretador {
         for(int i = 0; i < this.linhas.length; i++) {
             if(this.linhas[i] != null) {
             	if(this.linhas[i].contains("#Imprime")==true){
-            		mat.imprime(this.linhas[i]);
+                    if(valida==true){
+            		  mat.imprime(this.linhas[i]);
+                    }
             	}else if(this.linhas[i].contains("#Var")==true){
-                    mat.criaVar(this.linhas[i]);
+                    if(valida==true){
+                        mat.criaVar(this.linhas[i]);
+                    }
                 }else if(this.linhas[i].contains("#Se")==true){
-                    Boolean oi;
-                    oi=mat.leExp(this.linhas[i]);
-                    System.out.println(oi);
+                    if(valida==true){
+                        valida=mat.leExp(this.linhas[i]);
+                    }
                 }else if(this.linhas[i].contains("#Le")==true){
-                    mat.scan(this.linhas[i]);
+                    if(valida==true){
+                        mat.scan(this.linhas[i]);
+                    }
                 }else if(this.linhas[i].contains("#Enquanto")==true){
-                    //mat.criaVar(this.linhas[i])
+                     if(valida==true){
+                     //mat.criaVar(this.linhas[i])
+                     }
                 }else if(this.linhas[i].contains("#Fimse")==true){
-                    //mat.criaVar(this.linhas[i])
+                    valida=true;
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     //mat.criaVar(this.linhas[i])
                 }else if(this.linhas[i].contains("=")==true){
-                    mat.atribuicao(this.linhas[i]);
+                    if(valida==true){
+                        mat.atribuicao(this.linhas[i]);
+                    }
                 }else{
                     System.out.println("Nao foi possivel interpretar");
                 }

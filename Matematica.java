@@ -253,7 +253,7 @@ class Matematica {
 			b=this.pegaValor(var_2);
 			x=this.ler(a,b,boo);
 		}
-		
+		/*
 		System.out.println(var_1);
 		System.out.println(boo);
 		System.out.println(var_2);
@@ -261,7 +261,7 @@ class Matematica {
 		System.out.println(var_3);
 		System.out.println("");
 		System.out.println("");
-		
+		*/
 		
 
 		return x;

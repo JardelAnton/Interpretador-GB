@@ -1,5 +1,6 @@
-#Var (a)
-a=2;
-#Var (b)
-b=5;
-#Se(a#=b-3)
+#Le (a)
+#Le (b)
+#Se(a==b)
+#Imprime(A igual B\)
+#Fimse
+#Imprime(Nao sei de nada)
