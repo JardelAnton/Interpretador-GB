@@ -1,12 +1,6 @@
-
-
-
-
-import java.util.Scanner;
 class Matematica {
 	Var []variaveis;
 	private int topo;
-
 
 	public Matematica() {
 		variaveis = new Var[2000];
@@ -18,111 +12,99 @@ class Matematica {
 	public void criaVar(String h){
 		int aux=0;
 		String var;
-		aux=this.achar(h,'(');
-		var=retVar(')',h,aux);
-		if(this.verificaVar(var)==-1){
+		aux=this.achar(h);
+		aux++;
+		var=retVar(")",h,aux);
+		if(this.verificaVar(var)==0){
 			variaveis[topo].nome=var;
-			variaveis[topo].setValor(0.0);
 			topo++;
 		}else{
 			System.out.println("Var ja existe");
 		}
-		//for(int i =0;i<topo;i++){
-		//	System.out.println(variaveis[i].nome);
-		//}
 	}
-
-	
-
-
 	public void atribuicao (String h) {
-		String var_1,var_2,var_3;
-		Character tok;
 		int aux=0;
-		int pqp;
-		double a=0,b=0,c=0;
-		var_1=this.retVar('=',h,0);
-		aux=this.achar(h,'=');
-    	StringBuilder sb = new StringBuilder();
-		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';';i++){
-			sb.append(h.charAt(i));
+		int a=0,b=0;
+		int pos=0;
+		int i;
+		String a[]= new String[6];
+		for(int i=0;h.charAt(i) != '=';i++){
+			a[0]=a[0].concat(h.charAt(i));
 			aux=i;
 		}
-		var_2 = sb.toString();
-		tok= new Character (h.charAt(aux+1));
-		pqp=(int)tok;
-		if(pqp != 59){
-			pqp=2;
-			var_3=this.retVar(';',h,aux+2);
-		}else{
-			pqp=1;
-			var_3="";
+		aux++;
+		a[1]=h.charAt(aux);
+		aux++;
+		for(i=aux;h.charAt(i) != '+' && h.charAt(i) != '/' && h.charAt(i) != '*' && h.charAt(i) != '-' ;i++){
+				a[2]=a[2].concat(h.charAt(i));
+				aux=i;
 		}
-
-		if(pqp == 2){
-			a=this.pegaValor(var_2);
-			b=this.pegaValor(var_3);
-	
+		aux++;
+		if(h.charAt(aux) == ';'){
+			h[3]=';';
 		}else{
-			a=this.pegaValor(var_2);
+			h[3]=h.charAt(aux);
+			for(i=aux;h.charAt(i) != ';';i++){
+				a[4]=a[4].concat(h.charAt(i));
+				aux=i;
+			}
+			aux++;
+			a[5]=h.charAt(aux);
 		}
-		aux=verificaVar(var_1);
-		if (aux != -1) {
-			c=this.operacao(a,b,tok);
-			variaveis[aux].setValor(c);
+		if(this.ehVar(a[2])){
+			pos=this.verificaVar(a[2]);
+			if(pos>=0){
+				a=variaveis[pos].getValor();
+			}else{
+					System.out.println(a[2]+"n existe");
+				}
 		}else{
-			System.out.println("Var n existe");
+			a=Double.parseDouble(a[2]);
 		}
-
-		//System.out.println(var_1);
-		//System.out.println(var_2);
-		//System.out.println(var_3);
-		//System.out.println(tok);
-		//System.out.println(a);
-		
-	}
-
-	public double pegaValor(String h){
-		int aux;
-		double a=0;
-		if(this.ehVar(h)){
-				aux=verificaVar(h);
-				if (aux!=-1){
-					a=variaveis[aux].getValor();
+		if(a[3].charAt(1) != ';'){
+			if(this.ehVar(a[4])){
+				pos=this.verificaVar(a[4]);
+				if(pos>=0){
+					b=variaveis[pos].getValor();
 				}else{
-					System.out.println(" Var n existe ");
+					System.out.println(a[4]+"n existe");
 				}
 			}else{
-				a=Double.parseDouble(h);
+				b=Double.parseDouble(a[4]);
 			}
-		
-			return a;
+		}else{
+			b=0;
+		}
+		pos=this.verificaVar(a[0]);
+		if(a[1].charAt(0)== '='){
+			if (pos>=0){
+				int x=this.operacao(a,b,a.charAt(1));
+				variaveis.setValor(x);
+			}
+		}
 	}
-	
-	public boolean ehVar (String h) {
-		char a = h.charAt(0);
-			if(a >= 'A' && a <'[' || a>='a' && a<'}'){
-				return true;
-			}
-		return false;
 
+	public boolean ehVar (String h) {
+		char a = h.charAt(1);
+			if(a < 'A' || a > 'z'){
+				return false;
+			}
+		return true;
 	}
 
 	public double operacao(double a, double b, char c){
-		if(c == '+'){
+		if(c == '++'){
 			return (a+b);
 		}
-		if(c == '-'){
+		if(c == '--'){
 			return (a-b);
 		}
-		if(c == '*'){
+		if(c == '**'){
 			return (a*b);
 		}
-		if(c == '/'){
+		if(c == '//'){
 			return (a/b);
 		}
-
-		return a;
 	}
 
 	public int verificaVar(String h){
@@ -134,12 +116,12 @@ class Matematica {
 		return -1;
 	}
 
-	public int achar (String h,char c){
+	public int achar (String h){
 		int i=0;
 		int aux=0;
 		for(i=0;i<h.length();i++){
     		aux=i;
-    		if(h.charAt(i)==c){
+    		if(h.charAt(i)=='('){
     			aux++;
     			break;
     		}
@@ -149,12 +131,13 @@ class Matematica {
 
 
 	public void imprime (String h) {
-    	int i,j,g=1;
+    	int i;
     	double var;
     	String vari;
     	int c;
     	int aux=0;
-    	aux=this.achar(h,'(');
+    	aux=this.achar(h);
+
     	for(i=aux;h.charAt(i) != ')';i++){
     		if(h.charAt(i) != '$'){ 
     			if(h.charAt(i) == '\\'){
@@ -163,13 +146,10 @@ class Matematica {
     				System.out.print(h.charAt(i));
     			}
     		}else{
-    			vari=this.retVar(' ',h,i+1);
+    			vari=this.retVar(" ",h,i+1);
     			aux=this.verificaVar(vari);
     			if(aux>=0){
     				var=variaveis[aux].getValor();
-    				System.out.print(var);
-    				g=vari.length();
-    				i=i+g;
     			}else{
     				System.out.println("Var n existe");
     			}
@@ -180,139 +160,12 @@ class Matematica {
 
     public String retVar (char c,String h, int aux){
     	String var;
-    	StringBuilder sb = new StringBuilder();
 		for(int i=aux;h.charAt(i) != c;i++){
-			sb.append(h.charAt(i));
+			var=var.concat(h.charAt(i));
 		}
-		var = sb.toString();
 		return var;
     }
 
-    public void scan(String h){
-    	int aux=0;
-		String var;
-		aux=this.achar(h,'(');
-		var=retVar(')',h,aux);
-		//System.out.println(var);
-		aux=verificaVar(var);
-		Scanner scanner = new Scanner(System.in);
-		double valor = scanner.nextDouble(); 
-		//System.out.println(valor);
-		//System.out.println(aux);
-		if(aux==-1) {
-			this.criaVar(h);
-			variaveis[topo-1].setValor(valor);
-		}else{
-			variaveis[aux].setValor(valor);
-		}
-    }
-
-    public boolean leExp(String h){
-    	boolean x;
-    	String var_1,var_2,var_3;
-		String boo;
-		char tok;
-		int aux,con=0;
-		double a,b,c;
-		aux=this.achar(h,'(');
-		StringBuilder sb = new StringBuilder();
-		for(int i=aux;h.charAt(i) != '=' && h.charAt(i) != '<' && h.charAt(i) != '>' && h.charAt(i) != '#';i++){
-			sb.append(h.charAt(i));
-			aux=i;
-		}
-		var_1 = sb.toString();
-		sb = new StringBuilder();
-		sb.append(h.charAt(aux+1));
-		sb.append(h.charAt(aux+2));
-		boo = sb.toString();
-		sb = new StringBuilder();
-		aux++;
-		for(int i=aux+2;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/'&& h.charAt(i) != ')';i++){
-			sb.append(h.charAt(i));
-			aux=i;
-		}
-		var_2 = sb.toString();
-		tok=h.charAt(aux+1);
-		aux++;
-		if (h.charAt(aux)==')') {
-			con=1;
-			var_3="";
-		}else{
-			var_3=this.retVar(')',h,aux+1);
-			con=2;
-		}
-		
-		if (con==2) {
-			a=this.pegaValor(var_1);
-			b=this.pegaValor(var_2);
-			c=this.pegaValor(var_3);
-			b=this.operacao(b,c,tok);
-			x=this.ler(a,b,boo);
-		}else{
-			a=this.pegaValor(var_1);
-			b=this.pegaValor(var_2);
-			x=this.ler(a,b,boo);
-		}
-		/*
-		System.out.println(var_1);
-		System.out.println(boo);
-		System.out.println(var_2);
-		System.out.println(tok);
-		System.out.println(var_3);
-		System.out.println("");
-		System.out.println("");
-		*/
-		
-
-		return x;
-    }
-
-
-    public boolean ler(double a, double b, String tok){
-		if(tok.equals("==")){
-			if(a==b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		if(tok.equals("#=")){
-			if(a!=b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		if(tok.equals(">>")){
-			if(a>b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		if(tok.equals("<<")){
-			if(a<b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		if(tok.equals("<=")){
-			if(a<=b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		if(tok.equals(">=")){
-			if(a>=b){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		return false;
-	}
 
 
 
