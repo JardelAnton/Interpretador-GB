@@ -1,7 +1,7 @@
 #Var (a)
-a=0;
-#Enquanto(a<<3+2)
-	a=a+1;
-#Imprime($a )
-#Fimenquanto
-#Imprime(SAIU)
+#Var (b)
+#Var (c)
+a=4;
+b=3;
+c=a%b;
+#Imprime($c )

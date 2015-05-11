@@ -10,7 +10,7 @@ b = 5;
 #Var (c)
 a = 10;
 b = 5;
-#Se (b << a)
+#Se (b == a)
 	#Imprime($b eh menor que $a )
 #Fimse
 
