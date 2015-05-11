@@ -44,7 +44,7 @@ class Matematica {
 		var_1=this.retVar('=',h,0);
 		aux=this.achar(h,'=');
     	StringBuilder sb = new StringBuilder();
-		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';';i++){
+		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%';i++){
 			sb.append(h.charAt(i));
 			aux=i;
 		}
@@ -120,6 +120,9 @@ class Matematica {
 		}
 		if(c == '/'){
 			return (a/b);
+		}
+		if(c == '%'){
+			return (a%b);
 		}
 
 		return a;
