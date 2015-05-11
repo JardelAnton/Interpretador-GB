@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 class Matematica {
 	Var []variaveis;
 	private int topo;
