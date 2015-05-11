@@ -1,11 +1,7 @@
-#Le (a)
-#Le (b)
-#Le (c)
-#Se(a>=b)
-	#Imprime(1 heeey\)
-	#Se(b>=c)
-		#Imprime(OI\)
-	#Fimse
-	#Imprime(2 heeey\)
-#Fimse
-#Imprime(Nao sei de nada)
+#Var (a)
+a=0;
+#Enquanto(a<<3+2)
+	a=a+1;
+#Imprime($a )
+#Fimenquanto
+#Imprime(SAIU)
