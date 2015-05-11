@@ -1,0 +1,10 @@
+#var a;
+#var b;
+
+
+a == 10;
+b == 5;
+
+#Se (b == a)
+	#Imprime(eh igual);
+#Fimse;
