@@ -1,0 +1,7 @@
+#Var (a)
+a=0;
+#Enquanto(a<<3+2)
+	a=a+1;
+#Imprime($a )
+#Fimenquanto
+#Imprime(SAIU)

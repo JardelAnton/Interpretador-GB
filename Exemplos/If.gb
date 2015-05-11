@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+#var a;
+#var b;
+
+
+a == 10;
+b == 5;
+
+#Se (b == a)
+	#Imprime(eh igual);
+#Fimse;
+=======
+#Var (a)
+#Var (b)
+#Var (c)
+a = 10;
+b = 5;
+#Se (b << a)
+	#Imprime($b eh menor que $a )
+#Fimse
+>>>>>>> origin/master
