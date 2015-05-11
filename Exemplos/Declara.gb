@@ -1,3 +1,3 @@
-#var num;
-num == 2;
-#imprime ($num);
+#Var num;
+num = 2;
+#imprime ($num)
