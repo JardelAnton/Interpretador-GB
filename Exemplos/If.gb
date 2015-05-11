@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-#var a;
-#var b;
-
-
-a == 10;
-b == 5;
-
+#Var a;
+#Var b;
+a = 10;
+b = 5;
 #Se (b == a)
-	#Imprime(eh igual);
+	#Imprime(eh igual)
 #Fimse;
-=======
 #Var (a)
 #Var (b)
 #Var (c)
@@ -18,4 +13,4 @@ b = 5;
 #Se (b << a)
 	#Imprime($b eh menor que $a )
 #Fimse
->>>>>>> origin/master
+
