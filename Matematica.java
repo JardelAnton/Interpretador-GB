@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import java.util.Scanner;
 
+=======
+
+
+
+
+import java.util.Scanner;
+>>>>>>> parent of 32b3b85... Remoção de espaços
 class Matematica {
 	Var []variaveis;
 	private int topo;
+
 
 	public Matematica() {
 		variaveis = new Var[2000];
@@ -29,6 +38,12 @@ class Matematica {
 		//}
 	}
 
+<<<<<<< HEAD
+=======
+	
+
+
+>>>>>>> parent of 32b3b85... Remoção de espaços
 	public void atribuicao (String h) {
 		String var_1,var_2,var_3;
 		Character tok;
@@ -38,7 +53,11 @@ class Matematica {
 		var_1=this.retVar('=',h,0);
 		aux=this.achar(h,'=');
     	StringBuilder sb = new StringBuilder();
+<<<<<<< HEAD
 		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%';i++){
+=======
+		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';';i++){
+>>>>>>> parent of 32b3b85... Remoção de espaços
 			sb.append(h.charAt(i));
 			aux=i;
 		}
@@ -52,9 +71,17 @@ class Matematica {
 			pqp=1;
 			var_3="";
 		}
+<<<<<<< HEAD
 		if(pqp == 2){
 			a=this.pegaValor(var_2);
 			b=this.pegaValor(var_3);
+=======
+
+		if(pqp == 2){
+			a=this.pegaValor(var_2);
+			b=this.pegaValor(var_3);
+	
+>>>>>>> parent of 32b3b85... Remoção de espaços
 		}else{
 			a=this.pegaValor(var_2);
 		}
@@ -87,6 +114,10 @@ class Matematica {
 			}else{
 				a=Double.parseDouble(h);
 			}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> parent of 32b3b85... Remoção de espaços
 			return a;
 	}
 	
@@ -96,6 +127,10 @@ class Matematica {
 				return true;
 			}
 		return false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 32b3b85... Remoção de espaços
 	}
 
 	public double operacao(double a, double b, char c){
@@ -111,9 +146,13 @@ class Matematica {
 		if(c == '/'){
 			return (a/b);
 		}
+<<<<<<< HEAD
 		if(c == '%'){
 			return (a%b);
 		}
+=======
+
+>>>>>>> parent of 32b3b85... Remoção de espaços
 		return a;
 	}
 
@@ -196,6 +235,116 @@ class Matematica {
 			variaveis[aux].setValor(valor);
 		}
     }
+<<<<<<< HEAD
+=======
+
+    public boolean leExp(String h){
+    	boolean x;
+    	String var_1,var_2,var_3;
+		String boo;
+		char tok;
+		int aux,con=0;
+		double a,b,c;
+		aux=this.achar(h,'(');
+		StringBuilder sb = new StringBuilder();
+		for(int i=aux;h.charAt(i) != '=' && h.charAt(i) != '<' && h.charAt(i) != '>' && h.charAt(i) != '#';i++){
+			sb.append(h.charAt(i));
+			aux=i;
+		}
+		var_1 = sb.toString();
+		sb = new StringBuilder();
+		sb.append(h.charAt(aux+1));
+		sb.append(h.charAt(aux+2));
+		boo = sb.toString();
+		sb = new StringBuilder();
+		aux++;
+		for(int i=aux+2;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/'&& h.charAt(i) != ')';i++){
+			sb.append(h.charAt(i));
+			aux=i;
+		}
+		var_2 = sb.toString();
+		tok=h.charAt(aux+1);
+		aux++;
+		if (h.charAt(aux)==')') {
+			con=1;
+			var_3="";
+		}else{
+			var_3=this.retVar(')',h,aux+1);
+			con=2;
+		}
+		
+		if (con==2) {
+			a=this.pegaValor(var_1);
+			b=this.pegaValor(var_2);
+			c=this.pegaValor(var_3);
+			b=this.operacao(b,c,tok);
+			x=this.ler(a,b,boo);
+		}else{
+			a=this.pegaValor(var_1);
+			b=this.pegaValor(var_2);
+			x=this.ler(a,b,boo);
+		}
+		/*
+		System.out.println(var_1);
+		System.out.println(boo);
+		System.out.println(var_2);
+		System.out.println(tok);
+		System.out.println(var_3);
+		System.out.println("");
+		System.out.println("");
+		*/
+		
+
+		return x;
+    }
+
+
+    public boolean ler(double a, double b, String tok){
+		if(tok.equals("==")){
+			if(a==b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		if(tok.equals("#=")){
+			if(a!=b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		if(tok.equals(">>")){
+			if(a>b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		if(tok.equals("<<")){
+			if(a<b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		if(tok.equals("<=")){
+			if(a<=b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		if(tok.equals(">=")){
+			if(a>=b){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		return false;
+	}
+>>>>>>> parent of 32b3b85... Remoção de espaços
 
     public boolean leExp(String h){
     	boolean x;
