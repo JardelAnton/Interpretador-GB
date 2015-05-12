@@ -1,3 +1,4 @@
+
 /**
  * Exemplo de interpretador.
  */
@@ -6,49 +7,70 @@ class Interpretador {
     private String linhas[];
     private Matematica mat= new Matematica();
     private boolean[] valida = new boolean[200];
+    private boolean[] valida2 = new boolean[200];
+    private int[] linha = new int[200];
+    private int[] volta =  new int[200];
     private int escopoIf=0;
+    private int escopoLaco=0;
 
     public void interpreta(String l[]) {
-        valida[escopoIf]=true;
+        valida[0]=true;
+        valida2[0]=true;
+        volta[0]=0;
         this.linhas = l;
         //retira os espaços, menos em linhas que tem imprime
         for(int i=0; linhas[i] != null; i++){
             if(this.linhas[i].contains("#Imprime")==false) {
                 linhas[i]=linhas[i].replaceAll(" ","") ;
+                linhas[i]=linhas[i].replaceAll("\t","") ;
             }
         }
 
         for(int i = 0; i < this.linhas.length; i++) {
             if(this.linhas[i] != null) {
             	if(this.linhas[i].contains("#Imprime")==true){
-                    if(valida[escopoIf]==true){
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
             		  mat.imprime(this.linhas[i]);
                     }
             	}else if(this.linhas[i].contains("#Var")==true){
-                    if(valida[escopoIf]==true){
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                         mat.criaVar(this.linhas[i]);
                     }
                 }else if(this.linhas[i].contains("#Se")==true){
-                    if(valida[escopoIf]==true){
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                         escopoIf++;
                         valida[escopoIf]=mat.leExp(this.linhas[i]);
                     }else{
                         escopoIf++;
                     }
                 }else if(this.linhas[i].contains("#Le")==true){
-                    if(valida[escopoIf]==true){
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                         mat.scan(this.linhas[i]);
                     }
                 }else if(this.linhas[i].contains("#Enquanto")==true){
-                     if(valida[escopoIf]==true){
-                     //mat.criaVar(this.linhas[i])
-                     }
+                	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
+                		if(volta[escopoLaco]==0){
+                			escopoLaco++;
+                			
+                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
+                		}else{
+                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                		}	
+                	}else{
+                		escopoLaco++;
+                	}
                 }else if(this.linhas[i].contains("#Fimse")==true){
                     escopoIf--;
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
-                    //mat.criaVar(this.linhas[i])
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
+                        volta[escopoLaco]=1;
+                        i=linha[escopoLaco];
+                    }else{
+                        volta[escopoLaco]=0;
+                        escopoLaco--;
+                    }
                 }else if(this.linhas[i].contains("=")==true){
-                    if(valida[escopoIf]==true){
+                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                         mat.atribuicao(this.linhas[i]);
                     }
                 }else{
