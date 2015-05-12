@@ -1,0 +1,5 @@
+#Var (t)
+t = 0;
+#Enquanto (t << 10)
+	#Imprime ($t )
+#Fim
