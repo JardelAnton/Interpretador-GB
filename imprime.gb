@@ -1,7 +1,7 @@
-#Var (a)
-#Var (b)
-#Var (c)
+#Var(a)
+#Var(b)
+#Var(c)
 a=4;
 b=3;
 c=a%b;
-#Imprime($c )
+#Imprime($b )
