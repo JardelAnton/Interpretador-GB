@@ -10,6 +10,7 @@ class Interpretador {
     private boolean[] valida2 = new boolean[200];
     private int[] linha = new int[200];
     private int[] volta =  new int[200];
+    private int[] fim =  new int[200];
     private int escopoIf=0;
     private int escopoLaco=0;
 
@@ -48,24 +49,38 @@ class Interpretador {
                         mat.scan(this.linhas[i]);
                     }
                 }else if(this.linhas[i].contains("#Enquanto")==true){
+                	System.out.println("ENQUANTO");
+                    System.out.println(escopoLaco);
+                    System.out.println(volta[escopoLaco]);
                 	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
-                		if(volta[escopoLaco]==0){
-                			escopoLaco++;
+                		if(volta[escopoLaco]==1){
                 			
                 			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
+                			System.out.println("Ola Oi Mundoaham dhausdhshudsu ");
                 		}else{
-                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                            escopoLaco++;
+                            linha[escopoLaco]=i-1;
+                			 valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                			 System.out.println("Feijao com arroz");
                 		}	
                 	}else{
-                		escopoLaco++;
+                        System.out.println("Condiçao falsa");
+                        if(volta[escopoLaco]==1){
+                            i=fim[escopoLaco];
+                        }
+                        valida2[escopoLaco]=false;
+                        escopoLaco++;
                 	}
                 }else if(this.linhas[i].contains("#Fimse")==true){
                     escopoIf--;
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     if(valida[escopoIf]==true && valida2[escopoLaco]==true){
+                        System.out.println("huhuhuhuhuhuhuhuhuhuhuhuhuhuhuh");
                         volta[escopoLaco]=1;
-                        i=linha[escopoLaco];
+                        fim[escopoLaco]=i;
+                        i=linha[escopoLaco-1];
                     }else{
+                         System.out.println("kkkkkkkkkkkkkkkkkkkkk");
                         volta[escopoLaco]=0;
                         escopoLaco--;
                     }
