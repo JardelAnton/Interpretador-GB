@@ -1,16 +1,7 @@
 #Var(a)
-<<<<<<< HEAD
 a=1;
 #Enquanto(a<<5)	
 	#Imprime($a \)
 	a=a+1;
 #Fimenquanto
 #Imprime(Saiu)
-=======
-#Var(b)
-#Var(c)
-a=4;
-b=3;
-c=a%b;
-#Imprime($b )
->>>>>>> origin/master
