@@ -1,7 +1,2 @@
-#Var(a)
-a=1;
-#Enquanto(a<<5)	
-	#Imprime($a \)
-	a=a+1;
-#Fimenquanto
-#Imprime(Saiu)
+#Var(a=3;)
+#Imprime($a)

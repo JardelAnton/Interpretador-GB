@@ -18,14 +18,18 @@ class Matematica {
 	public void criaVar(String h){
 		int aux=0;
 		String var;
-		aux=this.achar(h,'(');
-		var=retVar(')',h,aux);
-		if(this.verificaVar(var)==-1){
-			variaveis[topo].nome=var;
-			variaveis[topo].setValor(0.0);
-			topo++;
-		}else{
-			System.out.println("Var ja existe");
+		if(h.contains("=")==true){
+			aux=this.achar(h,'(');
+			var=retVar('=',h,aux);
+			if(this.verificaVar(var)==-1){
+				variaveis[topo].nome=var;
+				variaveis[topo].setValor(0.0);
+				topo++;
+			}else{
+				System.out.println("Var '"+var +"' ja existe");
+			}
+			var=retVar(')',h,aux);
+			this.atribuicao(var);
 		}
 		//for(int i =0;i<topo;i++){
 		//	System.out.println(variaveis[i].nome);
@@ -71,7 +75,7 @@ class Matematica {
 			c=this.operacao(a,b,tok);
 			variaveis[aux].setValor(c);
 		}else{
-			System.out.println("Var n existe");
+			System.out.println("Var'"+var_1+"' n existe");
 		}
 
 		//System.out.println(var_1);
@@ -90,7 +94,7 @@ class Matematica {
 				if (aux!=-1){
 					a=variaveis[aux].getValor();
 				}else{
-					System.out.println(" Var n existe ");
+					System.out.println("Var'"+h+"' n existe");
 				}
 			}else{
 				a=Double.parseDouble(h);
@@ -166,7 +170,11 @@ class Matematica {
     				System.out.print(h.charAt(i));
     			}
     		}else{
-    			vari=this.retVar(' ',h,i+1);
+    			StringBuilder sb = new StringBuilder();
+				for(int k=i+1;h.charAt(k) != ' ' && h.charAt(k) != ')';k++){
+					sb.append(h.charAt(k));
+				}
+				vari = sb.toString();
     			aux=this.verificaVar(vari);
     			if(aux>=0){
     				var=variaveis[aux].getValor();
@@ -174,7 +182,7 @@ class Matematica {
     				g=vari.length();
     				i=i+g;
     			}else{
-    				System.out.println("Var n existe");
+    				System.out.println("Var '"+vari+"'n existe");
     			}
     		}
 
