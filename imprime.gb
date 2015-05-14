@@ -1,5 +1,4 @@
 #Var(haha=1;)
-
 #Enquanto(haha<<5)
 	#Imprime(Oi $haha \)
 	haha=haha+1;
