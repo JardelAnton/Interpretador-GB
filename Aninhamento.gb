@@ -16,6 +16,6 @@ b=3;
 		#Imprime ($a eh maior! \)
 	#Fimse
 	#Se(b #= 0)
-		#Imprime ($b! \)
+		#Imprime ($b \)
 	#Fimse
 #Fimse
