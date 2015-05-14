@@ -58,7 +58,8 @@ class Matematica {
 		var_1=this.retVar('=',h,0);
 		aux=this.achar(h,'=');
     	StringBuilder sb = new StringBuilder();
-		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%';i++){
+    	sb.append(h.charAt(aux));
+		for(int i=aux+1;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%';i++){
 			sb.append(h.charAt(i));
 			aux=i;
 		}
@@ -72,7 +73,9 @@ class Matematica {
 			pqp=1;
 			var_3="";
 		}
-
+		//System.out.println("oi "+var_1);
+		//System.out.println("oi "+var_2);
+		//System.out.println("oi "+var_3);
 		if(pqp == 2){
 			a=this.pegaValor(var_2);
 			b=this.pegaValor(var_3);

@@ -10,12 +10,12 @@ a = 0;
 	#Fimse		
 	a = a + 1;
 #Fimenquanto
-b=3;
+b=-3+-3;
 #Se(a == 5)
 	#Se(a >> 0)
 		#Imprime ($a eh maior! \)
 	#Fimse
 	#Se(b #= 0)
-		#Imprime ($b! \)
+		#Imprime ($b ! \)
 	#Fimse
 #Fimse
