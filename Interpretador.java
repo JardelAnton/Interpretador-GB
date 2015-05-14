@@ -50,22 +50,16 @@ class Interpretador {
                         mat.scan(this.linhas[i]);
                     }
                 }else if(this.linhas[i].contains("#Enquanto")==true){
-                	System.out.println("ENQUANTO");
-                    System.out.println(escopoLaco);
-                    System.out.println(volta[escopoLaco]);
                 	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                 		if(volta[escopoLaco]==1){
                 			
                 			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
-                			System.out.println("Ola Oi Mundoaham dhausdhshudsu ");
                 		}else{
                             escopoLaco++;
                             linha[escopoLaco]=i-1;
                 			 valida2[escopoLaco]=mat.leExp(this.linhas[i]);
-                			 System.out.println("Feijao com arroz");
                 		}	
                 	}else{
-                        System.out.println("Condiçao falsa");
                         if(volta[escopoLaco]==1){
                             valida2[escopoLaco]=false;
                         }
@@ -77,12 +71,10 @@ class Interpretador {
                     escopoIf--;
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     if(valida[escopoIf]==true && valida2[escopoLaco]==true){
-                        System.out.println("huhuhuhuhuhuhuhuhuhuhuhuhuhuhuh");
                         volta[escopoLaco]=1;
-                        fim[escopoLaco]=i;
-                        i=linha[escopoLaco-1];
+                        //fim[escopoLaco]=i;
+                        i=linha[escopoLaco];
                     }else{
-                         System.out.println("kkkkkkkkkkkkkkkkkkkkk");
                         volta[escopoLaco]=0;
                         escopoLaco--;
                     }
