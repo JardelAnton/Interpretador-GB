@@ -10,7 +10,7 @@ a = 0;
 	#Fimse		
 	a = a + 1;
 #Fimenquanto
-b=-3+-3;
+b=a;
 #Se(a == 5)
 	#Se(a >> 0)
 		#Imprime ($a eh maior! \)

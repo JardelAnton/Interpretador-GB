@@ -18,27 +18,46 @@ class Matematica {
 	public void criaVar(String h){
 		int aux=0;
 		String var;
+		int k=0;
 		if(h.contains("=")==true){
 			aux=this.achar(h,'(');
 			var=retVar('=',h,aux);
-			if(this.verificaVar(var)==-1){
-				variaveis[topo].nome=var;
-				variaveis[topo].setValor(0.0);
-				topo++;
-			}else{
-				System.out.println("Variavel '"+var +" ' ja existe");
+			for(int i=0;i<var.length();i++){
+				if(var.charAt(i) < '0' || var.charAt(i) > '9' && var.charAt(i) < 'A' || var.charAt(i) > 'Z' && var.charAt(i) < 'a' || var.charAt(i) > 'z'){
+					k++;
+				}
 			}
-			var=retVar(')',h,aux);
-			this.atribuicao(var);
+			if(k==0){
+				if(this.verificaVar(var)==-1){
+					variaveis[topo].nome=var;
+					variaveis[topo].setValor(0.0);
+					topo++;
+				}else{
+					System.out.println("Variavel '"+var +" ' ja existe");
+				}
+				var=retVar(')',h,aux);
+				this.atribuicao(var);
+			}else{
+				System.out.println("Variavel '"+var +"' contem caracteres invalidos");
+			}
 		}else{
 			aux=this.achar(h,'(');
 			var=retVar(')',h,aux);
-			if(this.verificaVar(var)==-1){
-				variaveis[topo].nome=var;
-				variaveis[topo].setValor(0.0);
-				topo++;
+			for(int i=0;i<var.length();i++){
+				if(var.charAt(i) < '0' || var.charAt(i) > '9' && var.charAt(i) < 'A' || var.charAt(i) > 'Z' && var.charAt(i) < 'a' || var.charAt(i) > 'z'){
+					k++;
+				}
+			}
+			if(k==0){
+				if(this.verificaVar(var)==-1){
+					variaveis[topo].nome=var;
+					variaveis[topo].setValor(0.0);
+					topo++;
+				}else{
+					System.out.println("Variavel '"+var +" ' ja existe");
+				}
 			}else{
-				System.out.println("Variavel '"+var +" ' ja existe");
+				System.out.println("Variavel '"+var +"' contem caracteres invalidos");
 			}
 		}
 		//for(int i =0;i<topo;i++){
@@ -103,17 +122,17 @@ class Matematica {
 		int aux;
 		double a=0;
 		if(this.ehVar(h)){
-				aux=verificaVar(h);
-				if (aux!=-1){
-					a=variaveis[aux].getValor();
-				}else{
-					System.out.println("Variavel'"+h+"' n existe");
-				}
+			aux=verificaVar(h);
+			if (aux!=-1){
+				a=variaveis[aux].getValor();
 			}else{
-				a=Double.parseDouble(h);
-			}
+				System.out.println("Variavel'"+h+"' n existe");
+				}
+		}else{
+			a=Double.parseDouble(h);
+		}
 		
-			return a;
+		return a;
 	}
 	
 	public boolean ehVar (String h) {
