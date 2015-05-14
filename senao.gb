@@ -7,10 +7,14 @@
 	#Se(b >> a)
 		#Imprime($b)
 	#Fimse
+<<<<<<< HEAD
+#Fimse	
+=======
 #Fimse
 #Se(b >> a)
 	#Imprime($b)
 #Fimse
+>>>>>>> origin/master
 	
 
 	
