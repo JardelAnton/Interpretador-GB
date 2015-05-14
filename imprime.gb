@@ -1,12 +1,6 @@
-#Var(haha=0;)
-#Var(oi=1;)
-#Enquanto(oi<<5)
-	#Enquanto(haha<<10)
-		#Imprime($haha )
-		haha=haha+1;
-	#Fimenquanto
-	#Imprime(\)
-	haha=0;
-	oi=oi+1;
+#Var( haha=1; )
+#Enquanto( haha<<5 )
+	#Imprime( oi $haha  oi \)
+	haha=haha+1;
 #Fimenquanto
-#Imprime(\Saiu)
+#Imprime(Saiu)
