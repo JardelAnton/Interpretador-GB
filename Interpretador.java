@@ -1,6 +1,11 @@
-
 /**
- * Exemplo de interpretador.
+ *  Interpretador:
+ *  Desenvolvido para a disciplina de Programação I da Universidade Federal da Fronteira Sul.
+ *  Através da linguagem java, a classe Interpretador é usada para interpretar o código do arquivo.
+ *  Para maiores informações do uso da linguagem GB consulte o manual.
+ *  Link repositório: https://github.com/LeticiaGenadeze/Interpretador-GB
+ *  Por João Barp <joaobarp@hotmail.com> e Leticia Genadeze <lety_genadeze@hotmail.com>
+ * 
  */
 
 class Interpretador {
