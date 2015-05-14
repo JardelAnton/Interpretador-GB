@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 #Le (a)
 #Le(b)
 #Le (c)
-
 #Se (b #= a)
 	#Imprime(haha)
-=======
 #Var (a)
 #Var (b)
 a=10;
@@ -17,6 +14,5 @@ b=5;
 c=8;
 #Se (c >= b)
 #Imprime($c eh maior que $b )
->>>>>>> origin/master
 #Fimse
 
