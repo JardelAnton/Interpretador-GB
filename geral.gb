@@ -1,0 +1,42 @@
+#Var(a)
+#Var(b)
+#Var(c)
+#Var(aux)
+#Le(a)
+#Le(b)
+aux=a+b;
+#Imprime($aux \)
+aux=a-b;
+#Imprime($aux \)
+aux=a%b;
+#Imprime($aux \)
+aux=a*b;
+#Imprime($aux \)
+aux=a/b;
+#Imprime($aux \)
+#Imprime( \)
+#Le(c)
+#Se(c >> 0)
+	#Enquanto(c << 5)
+		#Imprime($c \)
+		c=c+1;
+	#Fimenquanto
+#Fimse
+#Imprime( \)
+#Var(d=5;)
+#Imprime($d \)
+#Imprime( \)
+a=12;
+b=22;
+#Se(c #= 0)
+	#Imprime($c \)
+	#Se(b #= 0)
+		#Imprime($b \)
+		#Se(a #= 0)
+			#Imprime($a \)
+		#Fimse
+	#Fimse
+#Fimse	
+#Imprime(Fim!! \)
+
+
