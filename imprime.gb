@@ -1,2 +1,4 @@
-#Var (a=3;)
-#Imprime($a)
+#Var(haha=1;)
+#Imprime( $haha)
+haha=2+2;
+#Imprime( $haha)
