@@ -19,6 +19,7 @@ class Interpretador {
         valida2[0]=true;
         volta[0]=0;
         this.linhas = l;
+        String palavra;
         //retira os espaços, menos em linhas que tem imprime
         for(int i=0; linhas[i] != null; i++){
             if(this.linhas[i].contains("#Imprime")==false) {
@@ -66,10 +67,11 @@ class Interpretador {
                 	}else{
                         System.out.println("Condiçao falsa");
                         if(volta[escopoLaco]==1){
-                            i=fim[escopoLaco];
+                            valida2[escopoLaco]=false;
                         }
-                        valida2[escopoLaco]=false;
+                        
                         escopoLaco++;
+                        valida2[escopoLaco]=false;
                 	}
                 }else if(this.linhas[i].contains("#Fimse")==true){
                     escopoIf--;
