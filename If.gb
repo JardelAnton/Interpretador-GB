@@ -1,18 +1,18 @@
+#Var(a)
+#Var(b)
+#Var(c)
 #Le (a)
 #Le(b)
 #Le (c)
 #Se (b #= a)
 	#Imprime(haha)
-#Var (a)
-#Var (b)
 a=10;
 b=5;
 #Se (b == a)
 	#Imprime ( eh igual )
 #Fimse
-#Var (c)
 c=8;
 #Se (c >= b)
-#Imprime($c eh maior que $b )
+	#Imprime($c eh maior que $b )
 #Fimse
 
