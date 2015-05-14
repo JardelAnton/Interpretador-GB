@@ -1,9 +1,9 @@
 #Var(a)
 #Var(b)
 #Var(c)
-#Le (a)
+#Le(a)
 #Le(b)
-#Le (c)
+#Le(c)
 #Se (b #= a)
 	#Imprime(haha)
 a=10;
