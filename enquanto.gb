@@ -1,0 +1,14 @@
+#Var(a=0;)
+#Var(b)
+b=2;
+#Enquanto(a << 3)
+	#Imprime($a \)
+	a=a+1;
+	#Enquanto (b >> 0)
+		#Imprime($b \)
+		b=b-1;
+	#Fimenquanto	
+#Fimenquanto
+	
+
+	

@@ -1,18 +1,21 @@
-#Var (a);
-#Var (b);
+#Var(a)
+#Var(b)
 a = 0;
-#Enquanto a << 5
-	#Se (a >> 0)
-		#Imprime ($a )
-	#Senao 
-		#Imprime (0)
+#Enquanto(a << 5)
+	#Se(a >> 1)
+		#Imprime ($a \)
 	#Fimse
+	#Se(a << 1 ) 
+		#Imprime (0 \)
+	#Fimse		
 	a = a + 1;
-#Fimenquanto;
-#Se (a == 5)
-	#Se (a >> 0)
-		#Imprime ($a é maior! )
-	#Senao
-		#Imprime ($a é menor! )
-	#Fimse;
-#Fimse;
+#Fimenquanto
+b=3;
+#Se(a == 5)
+	#Se(a >> 0)
+		#Imprime ($a eh maior! \)
+	#Fimse
+	#Se(b #= 0)
+		#Imprime ($b! \)
+	#Fimse
+#Fimse
