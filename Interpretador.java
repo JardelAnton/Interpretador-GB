@@ -4,7 +4,7 @@
  *  Através da linguagem java, a classe Interpretador é usada para interpretar o código do arquivo.
  *  Para maiores informações do uso da linguagem GB consulte o manual.
  *  Link repositório: https://github.com/LeticiaGenadeze/Interpretador-GB
- *  Por João Barp <joaobarp@hotmail.com> e Leticia Genadeze <lety_genadeze@hotmail.com>
+ *  Por João Barp <joaorbarp@hotmail.com> e Leticia Genadeze <lety_genadeze@hotmail.com>
  * 
  */
 
@@ -57,7 +57,7 @@ class Interpretador {
                 }else if(this.linhas[i].contains("#Enquanto")==true){
                 	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                 		if(volta[escopoLaco]==1){
-                			
+                			 linha[escopoLaco]=i-1;
                 			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
                 		}else{
                             escopoLaco++;
@@ -80,6 +80,7 @@ class Interpretador {
                         //fim[escopoLaco]=i;
                         i=linha[escopoLaco];
                     }else{
+                    	linha[escopoLaco]=0;
                         volta[escopoLaco]=0;
                         escopoLaco--;
                     }
@@ -88,7 +89,7 @@ class Interpretador {
                         mat.atribuicao(this.linhas[i]);
                     }
                 }else{
-                    System.out.println("Nao foi possivel interpretar");
+                    System.out.println("Nao foi possivel interpretar linha "+(i+1));
                 }
             }
         }
