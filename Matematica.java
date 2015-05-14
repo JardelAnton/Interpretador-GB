@@ -26,7 +26,7 @@ class Matematica {
 				variaveis[topo].setValor(0.0);
 				topo++;
 			}else{
-				System.out.println("Var '"+var +"' ja existe");
+				System.out.println("Variavel '"+var +"' ja existe");
 			}
 			var=retVar(')',h,aux);
 			this.atribuicao(var);
@@ -48,16 +48,20 @@ class Matematica {
 		var_1=this.retVar('=',h,0);
 		aux=this.achar(h,'=');
     	StringBuilder sb = new StringBuilder();
-		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%';i++){
+		for(int i=aux;h.charAt(i) != '+' && h.charAt(i) != '-' && h.charAt(i) != '*' && h.charAt(i) != '/' && h.charAt(i) != ';' && h.charAt(i) != '%'&& h.charAt(i) != ')';i++){
 			sb.append(h.charAt(i));
 			aux=i;
 		}
 		var_2 = sb.toString();
 		tok= new Character (h.charAt(aux+1));
 		pqp=(int)tok;
-		if(pqp != 59){
+		if(pqp != 59 || pqp != ')'){
 			pqp=2;
-			var_3=this.retVar(';',h,aux+2);
+			sb = new StringBuilder();
+			for(int k=aux+2;h.charAt(k) != ';' && h.charAt(k) != ')';k++){
+				sb.append(h.charAt(k));
+			}
+			var_3=sb.toString();
 		}else{
 			pqp=1;
 			var_3="";
@@ -75,7 +79,7 @@ class Matematica {
 			c=this.operacao(a,b,tok);
 			variaveis[aux].setValor(c);
 		}else{
-			System.out.println("Var'"+var_1+"' n existe");
+			System.out.println("Variavel'"+var_1+"' n existe");
 		}
 
 		//System.out.println(var_1);
@@ -94,7 +98,7 @@ class Matematica {
 				if (aux!=-1){
 					a=variaveis[aux].getValor();
 				}else{
-					System.out.println("Var'"+h+"' n existe");
+					System.out.println("Variavel'"+h+"' n existe");
 				}
 			}else{
 				a=Double.parseDouble(h);
@@ -182,7 +186,7 @@ class Matematica {
     				g=vari.length();
     				i=i+g;
     			}else{
-    				System.out.println("Var '"+vari+"'n existe");
+    				System.out.println("Variaveis '"+vari+ "' n existe");
     			}
     		}
 
