@@ -1,6 +1,0 @@
-#Var(t)
-t=0;
-#Enquanto ( t << 10  )
-	#Imprime ($t \)
-t=t+1;
-#Fimenquanto
