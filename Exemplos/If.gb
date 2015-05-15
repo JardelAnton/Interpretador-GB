@@ -6,6 +6,7 @@
 #Le(c)
 #Se (b #= a)
 	#Imprime(Oi \)
+#Fimse
 a=10;
 b=5;
 #Se (b == a)

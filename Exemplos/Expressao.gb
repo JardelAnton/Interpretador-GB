@@ -6,13 +6,13 @@ num1 = 4 + 4;
 num2 = num1 - 4;
 num3 = num1 / num2;
 num4 = num3 * num2;
-#Imprime ($num1 ) 
-#Imprime ($num2 )
-#Imprime ($num3 )
-#Imprime ($num4 )
+#Imprime ($num1 \) 
+#Imprime ($num2 \)
+#Imprime ($num3 \)
+#Imprime ($num4 \)
 #Var (num5) 
 num5=1;
-#Imprime ($num5 )
+#Imprime ($num5 \)
 num5=num5+1;
-#Imprime ($num5 )
+#Imprime ($num5 \)
 

@@ -16,7 +16,7 @@ num4 = num3 * num2;
 		#Imprime ( eh menor ou igual \)
 	#Fimse
 #Fimse
-#Var (num5) 
+#Var(num5) 
 num5=1;
 #Imprime ($num5 \)
 num5=num5+1;

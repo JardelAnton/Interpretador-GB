@@ -2,12 +2,7 @@
 #Var(b)
 a = 0;
 #Enquanto(a << 5)
-	#Se(a >> 1)
-		#Imprime ($a \)
-	#Fimse
-	#Se(a << 1 ) 
-		#Imprime (0 \)
-	#Fimse		
+	#Imprime ($a \)
 	a = a + 1;
 #Fimenquanto
 b=a;
@@ -16,10 +11,7 @@ b=a;
 		#Imprime ($a eh maior! \)
 	#Fimse
 	#Se(b #= 0)
-<<<<<<< HEAD
 		#Imprime ($b \)
-=======
 		#Imprime ($b ! \)
->>>>>>> origin/master
 	#Fimse
 #Fimse
