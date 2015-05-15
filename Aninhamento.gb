@@ -16,6 +16,10 @@ b=a;
 		#Imprime ($a eh maior! \)
 	#Fimse
 	#Se(b #= 0)
+<<<<<<< HEAD
+		#Imprime ($b \)
+=======
 		#Imprime ($b ! \)
+>>>>>>> origin/master
 	#Fimse
 #Fimse
