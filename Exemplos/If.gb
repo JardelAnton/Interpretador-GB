@@ -5,14 +5,14 @@
 #Le(b)
 #Le(c)
 #Se (b #= a)
-	#Imprime(haha)
+	#Imprime(Oi \)
 a=10;
 b=5;
 #Se (b == a)
-	#Imprime ( eh igual )
+	#Imprime ( eh igual \ )
 #Fimse
 c=8;
 #Se (c >= b)
-	#Imprime($c eh maior que $b )
+	#Imprime($c eh maior que $b \)
 #Fimse
 
