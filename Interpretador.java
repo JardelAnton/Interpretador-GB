@@ -92,6 +92,7 @@ class Interpretador {
                 }else{
                     System.out.println("Nao foi possivel interpretar linha "+(i+1));
                 }
+                //System.out.println(this.linhas[i]);
             }
         }
     }
