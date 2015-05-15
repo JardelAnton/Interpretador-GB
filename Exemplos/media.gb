@@ -1,0 +1,8 @@
+#Var(a)
+#Var(b)
+#Var(aux)
+#Le(a)
+#Le(b)
+aux = a + b;
+aux = aux / 2;
+#Imprime($aux);

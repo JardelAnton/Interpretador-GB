@@ -1,0 +1,3 @@
+#Var(num)
+num=2;
+#Imprime ($num )

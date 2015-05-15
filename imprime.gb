@@ -1,0 +1,7 @@
+#Var(haha=0;)
+#Var(oi=1;)
+	#Enquanto(haha<<7)
+		#Imprime($haha )
+		haha=haha+1;
+	#Fimenquanto
+#Imprime(Saiu)

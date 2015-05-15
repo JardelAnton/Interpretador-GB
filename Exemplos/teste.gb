@@ -1,0 +1,23 @@
+#Var (num1) 
+#Var (num2) 
+#Var (num3) 
+#Var (num4) 
+num1 = 4 + 4;
+num2 = num1 - 4;
+num3 = num1 / num2;
+num4 = num3 * num2;
+#Imprime ($num1 \) 
+#Imprime ($num2 \)
+#Imprime ($num3 \)
+#Imprime ($num4 \)
+#Se (num1 >= num2)
+	#Imprime ( eh maior ou igual \)
+	#Se (num2 <= num1)
+		#Imprime ( eh menor ou igual \)
+	#Fimse
+#Fimse
+#Var (num5) 
+num5=1;
+#Imprime ($num5 \)
+num5=num5+1;
+#Imprime ($num5 \)
