@@ -23,6 +23,7 @@ class Interpretador {
         valida[0]=true;
         valida2[0]=true;
         volta[0]=0;
+        volta[1]=0;
         this.linhas = l;
         String palavra;
         //retira os espaços, menos em linhas que tem imprime
@@ -57,18 +58,18 @@ class Interpretador {
                 }else if(this.linhas[i].contains("#Enquanto")==true){
                 	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                 		if(volta[escopoLaco]==1){
-                			 linha[escopoLaco]=i-1;
-                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
+                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                            linha[escopoLaco]=i-1;	
                 		}else{
                             escopoLaco++;
                             linha[escopoLaco]=i-1;
-                			 valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);
                 		}	
                 	}else{
                         if(volta[escopoLaco]==1){
                             valida2[escopoLaco]=false;
+                            volta[escopoLaco]=0;
                         }
-                        
                         escopoLaco++;
                         valida2[escopoLaco]=false;
                 	}
@@ -77,10 +78,10 @@ class Interpretador {
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
                     if(valida[escopoIf]==true && valida2[escopoLaco]==true){
                         volta[escopoLaco]=1;
-                        //fim[escopoLaco]=i;
                         i=linha[escopoLaco];
-                    }else{
-                    	linha[escopoLaco]=0;
+                        linha[escopoLaco]=0;
+                    }else{           
+                        linha[escopoLaco]=0;             
                         volta[escopoLaco]=0;
                         escopoLaco--;
                     }
