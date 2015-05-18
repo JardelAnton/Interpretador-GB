@@ -14,17 +14,13 @@ class Interpretador {
     private boolean[] valida = new boolean[200];
     private boolean[] valida2 = new boolean[200];
     private int[] linha = new int[200];
-    private int[] volta =  new int[200];
-    private int[] fim =  new int[200];
     private int escopoIf=0;
     private int escopoLaco=0;
 
     public void interpreta(String l[]) {
         valida[0]=true;
         valida2[0]=true;
-        volta[0]=0;
         this.linhas = l;
-        String palavra;
         //retira os espaços, menos em linhas que tem imprime
         for(int i=0; linhas[i] != null; i++){
             if(this.linhas[i].contains("#Imprime")==false) {
@@ -55,33 +51,22 @@ class Interpretador {
                         mat.scan(this.linhas[i]);
                     }
                 }else if(this.linhas[i].contains("#Enquanto")==true){
-                	if(valida[escopoIf]==true && valida2[escopoLaco]==true){
-                		if(volta[escopoLaco]==1){
-                			 linha[escopoLaco]=i-1;
-                			valida2[escopoLaco]=mat.leExp(this.linhas[i]);	
-                		}else{
-                            escopoLaco++;
-                            linha[escopoLaco]=i-1;
-                			 valida2[escopoLaco]=mat.leExp(this.linhas[i]);
-                		}	
-                	}else{
-                        if(volta[escopoLaco]==1){
-                            valida2[escopoLaco]=false;
-                        }
-                        
+                	if(valida[escopoIf]==true && valida2[escopoLaco] ==true){
+                        escopoLaco++;
+                        linha[escopoLaco]=i-1;
+                        valida2[escopoLaco]=mat.leExp(this.linhas[i]);
+                    }else{
                         escopoLaco++;
                         valida2[escopoLaco]=false;
-                	}
+                    }
                 }else if(this.linhas[i].contains("#Fimse")==true){
                     escopoIf--;
                 }else if(this.linhas[i].contains("#Fimenquanto")==true){
-                    if(valida[escopoIf]==true && valida2[escopoLaco]==true){
-                        volta[escopoLaco]=1;
-                        //fim[escopoLaco]=i;
+                    if(valida[escopoIf]==true && valida2[escopoLaco] ==true){
                         i=linha[escopoLaco];
-                    }else{
-                    	linha[escopoLaco]=0;
-                        volta[escopoLaco]=0;
+                        linha[escopoLaco]=0; 
+                        escopoLaco--;
+                    }else{           
                         escopoLaco--;
                     }
                 }else if(this.linhas[i].contains("=")==true){
